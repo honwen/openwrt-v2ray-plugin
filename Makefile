@@ -12,7 +12,6 @@ PKG_ARCH:=$(ARCH)
 PKG_ARCH:=$(subst i386,386,$(PKG_ARCH))
 PKG_ARCH:=$(subst x86_64,amd64,$(PKG_ARCH))
 PKG_ARCH:=$(subst mipsel,mipsle,$(PKG_ARCH))
-PKG_ARCH:=$(subst arm7,arm,$(PKG_ARCH))
 
 PKG_SOURCE:=v2ray-plugin-linux-$(PKG_ARCH)-$(PKG_RELEASE).tar.gz
 PKG_SOURCE_URL:=https://github.com/shadowsocks/v2ray-plugin/releases/download/v$(PKG_RELEASE)/
@@ -38,7 +37,7 @@ endef
 
 define Package/v2ray-plugin/install
 	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/v2ray-plugin_linux_$(PKG_ARCH) $(1)/usr/bin/v2ray-plugin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/v2ray-plugin_linux_$(subst arm,arm7,$(PKG_ARCH)) $(1)/usr/bin/v2ray-plugin
 endef
 
 $(eval $(call BuildPackage,v2ray-plugin))
