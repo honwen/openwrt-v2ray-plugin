@@ -1,9 +1,15 @@
+#
+# Copyright (C) 2018-2019 chenhw2 <https://github.com/chenhw2>
+#
+# This is free software, licensed under the GNU General Public License v3.
+# See /LICENSE for more information.
+#
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=0.0.1
-PKG_RELEASE:=20190114
+PKG_VERSION:=1.0
+PKG_RELEASE:=8cea1a3
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
@@ -13,8 +19,8 @@ PKG_ARCH:=$(subst i386,386,$(PKG_ARCH))
 PKG_ARCH:=$(subst x86_64,amd64,$(PKG_ARCH))
 PKG_ARCH:=$(subst mipsel,mipsle,$(PKG_ARCH))
 
-PKG_SOURCE:=v2ray-plugin-linux-$(PKG_ARCH)-$(PKG_RELEASE).tar.gz
-PKG_SOURCE_URL:=https://github.com/shadowsocks/v2ray-plugin/releases/download/v$(PKG_RELEASE)/
+PKG_SOURCE:=v2ray-plugin-linux-$(subst mipsle,mips,$(PKG_ARCH))-$(PKG_RELEASE).tar.gz
+PKG_SOURCE_URL:=https://github.com/shadowsocks/v2ray-plugin/releases/download/v$(PKG_VERSION)/
 PKG_HASH:=skip
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
