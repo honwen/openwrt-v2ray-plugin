@@ -16,9 +16,12 @@ PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 # Golang ARCH: arm[5-7], 386, amd64, mips, mipsle
 PKG_ARCH:=$(ARCH)
 BIN_ARCH:=$(ARCH)
+ifeq ($(ARCH),mips)
+    BIN_ARCH:=mips_sf
+endif
 ifeq ($(ARCH),mipsel)
 	PKG_ARCH:=mips
-	BIN_ARCH:=mipsle
+	BIN_ARCH:=mipsle_sf
 endif
 ifeq ($(ARCH),i386)
 	PKG_ARCH:=386
