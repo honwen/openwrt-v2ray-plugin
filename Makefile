@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=1.0
-PKG_RELEASE:=8cea1a3
+PKG_VERSION:=trunk
+PKG_RELEASE:=master
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
@@ -36,9 +36,6 @@ ifeq ($(ARCH),arm)
 endif
 
 PKG_SOURCE:=v2ray-plugin-linux-$(PKG_ARCH)-$(PKG_RELEASE).tar.gz
-PKG_SOURCE_URL:=https://github.com/shadowsocks/v2ray-plugin/releases/download/v$(PKG_VERSION)/
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-PKG_HASH:=skip
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -54,6 +51,9 @@ define Package/v2ray-plugin/description
 endef
 
 define Build/Prepare
+	rm -rf "$(DL_DIR)/$(PKG_SOURCE)" "$(DL_DIR)/$(PKG_SOURCE).url.txt" "$(PKG_BUILD_DIR)/*"
+	curl -skSL "https://circleci.com/api/v1.1/project/github/shadowsocks/v2ray-plugin/latest/artifacts?branch=$(PKG_RELEASE)" | sed -n 's/.*\(https:.*tar.gz\).*/\1/p' | grep "linux-$(PKG_ARCH)" > "$(DL_DIR)/$(PKG_SOURCE).url.txt"
+	cat "$(DL_DIR)/$(PKG_SOURCE).url.txt" | xargs curl -skSLo "$(DL_DIR)/$(PKG_SOURCE)"
 	gzip -dc "$(DL_DIR)/$(PKG_SOURCE)" | tar -C $(PKG_BUILD_DIR)/ -xf -
 endef
 
