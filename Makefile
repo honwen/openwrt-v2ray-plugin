@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=1.3.0
-PKG_RELEASE:=20200205
+PKG_VERSION:=1.3.1
+PKG_RELEASE:=20200601
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
@@ -58,7 +58,7 @@ define Build/Prepare
 endef
 
 define Build/Compile
-	echo "$(PKG_NAME)Compile Skiped!"
+	echo "$(PKG_NAME)Compile Skipped!"
 endef
 
 define Package/v2ray-plugin/install
