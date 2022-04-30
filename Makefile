@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018-2021 honwen <https://github.com/honwen>
+# Copyright (C) 2018-2022 honwen <https://github.com/honwen>
 #
 # This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=5.0.2
-PKG_RELEASE:=20220105
+PKG_VERSION:=4.45.0
+PKG_RELEASE:=20220430
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
