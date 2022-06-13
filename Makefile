@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=4.45.0
-PKG_RELEASE:=20220430
+PKG_VERSION:=4.45.2
+PKG_RELEASE:=20220613
 PKG_MAINTAINER:=chenhw2 <https://github.com/chenhw2>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
