@@ -8,8 +8,8 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=v2ray-plugin
-PKG_VERSION:=5.14.1
-PKG_RELEASE:=20240305
+PKG_VERSION:=5.15.1
+PKG_RELEASE:=20240317
 PKG_MAINTAINER:=honwen <https://github.com/honwen>
 
 # OpenWrt ARCH: arm, i386, x86_64, mips, mipsel
